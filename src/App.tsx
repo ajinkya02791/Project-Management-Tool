@@ -1,12 +1,16 @@
 import './App.css'
+import ToolBox from './components/ToolBox'
+import { generateTasks , a} from './utility/generateTasks.js'
 
 function App() {
 
+  console.log(a);
 
   return (
-    <>
-      <h1 className='flex justify-center items-center h-screen'>Hi</h1>
-    </>
+    <div>
+        <ToolBox />
+        <button name='okk' className='bg-black m-auto text-lime-50' onClick={(e) => generateTasks(5)}>okk</button>
+    </div>
   )
 }
 
