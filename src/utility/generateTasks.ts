@@ -1,12 +1,4 @@
-interface Task {
-title : string,
-assignes : string,
-tag : string,
-status : string,
-dateStart : Date,
-dateEnd : Date
-}
-
+import { type Task } from './interfaces.ts'
 
 const assigns = ["rahul", "shirish", "girish", "kavya", "malati", "akshay"];
 const tags = ["frontend", "backend", "bug", "quick fix", "feature"];
@@ -19,10 +11,11 @@ const endDate2  = new Date(2026, 3, 15).getTime();
 export function generateTasks (NoOfTasks : number): Array<Task> {
     const tasks: any = [];
 
-    console.log("a", Math.random() * 6)
+    // console.log("a", Math.random() * 6)
 
     for(let i = 1; i<= NoOfTasks; i++) {
         tasks.push({
+            id : Math.floor(Math.random() * 500),
             title : `Task ${i}`,
             assigns : assigns[Math.floor((Math.random() *  6))],
             tag : tags[Math.floor((Math.random() * 5))],
@@ -37,4 +30,4 @@ export function generateTasks (NoOfTasks : number): Array<Task> {
 
 export const a = generateTasks(5);
 
-console.log(a);
+// console.log(a);

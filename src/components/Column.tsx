@@ -1,21 +1,25 @@
+import type { Task } from '../utility/interfaces.ts';
 import Card from './Card'
-import { a } from '../utility/generateTasks.js'
+import { useTasks } from '../context/TaskContext'
 
 const column = (props : any) => {
 
-  const a1 = [...a];
   const status = props.status;
-  const columnTask = a1.filter(task => task.status === status)
-  console.log("columnTasks",columnTask);
+  // console.log("stattus", status)
+  const column = props.column;
+
+  const { onDragStart , onDragOver, onDrop } = useTasks();
+
+
+  // console.log("columnTasks",Array.isArray(status));
 
   return (
-    <div >
-        <h3 className='font-bold md:text-center'>{status} <span className='bg-teal-300 rounded-full p-0.5'>{columnTask.length}</span></h3>
-        <div className='mt-3 md:flex-col flex'>
-        {columnTask.map((k,i)=> (
-          <div key={i} className=''>
-            <Card task={k}/>
-            </div>))}
+    <div   className=''>
+        <h3 className='font-bold md:text-center'>{status} <span className='bg-teal-300 rounded-full p-0.5'>{column.length}</span></h3>
+        <div className='mt-3 md:flex-col flex md:h-140 md:w-35 h-41 bg-gray-600 rounded-2xl' onDrop={(e) => onDrop(e, status)} onDragOver={onDragOver} >
+        {column && column.map((k: Task)=> (
+            <Card key={k.id} task={k} onDragStart={onDragStart}  />
+          ))}
         </div>
     </div>
   )
