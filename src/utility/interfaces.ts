@@ -15,3 +15,6 @@ export interface TaskContextType {
   onDragOver: (event: React.DragEvent) => void;
   onDrop: (event: React.DragEvent, toColumn: string) => void;
 }
+
+
+export type ViewMode = "kaban" | "list" | "gantt"

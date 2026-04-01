@@ -50,7 +50,7 @@ export const TaskProvider = ({children} : any) => {
     const task = event.dataTransfer.getData("taskId");
     const fromColumn = event.dataTransfer.getData("fromColumn");
     
-    console.log("k1", task);
+    // console.log("k1", task);
 
     if(fromColumn === toColumn) return;
 
@@ -62,8 +62,8 @@ export const TaskProvider = ({children} : any) => {
         return k;
        })
 
-       console.log("prev" , prev);
-       console.log("currentTask" , currentTask);
+    //    console.log("prev" , prev);
+    //    console.log("currentTask" , currentTask);
        
 
        return currentTask;
