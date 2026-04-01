@@ -14,12 +14,17 @@ const column = (props : any) => {
   // console.log("columnTasks",Array.isArray(status));
 
   return (
-    <div   className=''>
-        <h3 className='font-bold md:text-center'>{status} <span className='bg-teal-300 rounded-full p-0.5'>{column.length}</span></h3>
-        <div className='mt-3 md:flex-col flex md:h-140 md:w-35 h-41 bg-gray-600 rounded-2xl' onDrop={(e) => onDrop(e, status)} onDragOver={onDragOver} >
+    <div className='h-auto'>
+        <h3 className='font-bold md:text-center'>{status} 
+          <span className='bg-teal-300 rounded-full m-1 p-1'>{column.length}</span>
+        </h3>
+        <div className='overflow-y-scroll h-screen'>
+        <div className='mt-3 md:flex-col items-center flex md:h-auto md:min-h-screen md:w-43 h-41 bg-gray-600 rounded-2xl' onDrop={(e) => onDrop(e, status)} onDragOver={onDragOver} >
         {column && column.map((k: Task)=> (
             <Card key={k.id} task={k} onDragStart={onDragStart}  />
           ))}
+
+        </div>
         </div>
     </div>
   )

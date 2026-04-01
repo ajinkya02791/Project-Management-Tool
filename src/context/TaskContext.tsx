@@ -18,11 +18,6 @@ export const useTasks = () => {
 
 export const TaskProvider = ({children} : any) => {
 
-   
-
-    interface columns {
-        [key : string] : Task[]
-    }
 
 //     const cloumn_0 : columns = {
 //     'to-do' : a.filter(k => k.status == "to-do"),
@@ -41,7 +36,7 @@ export const TaskProvider = ({children} : any) => {
 
 
 //   const [columns , setColumns] = useReducer(reducer, cloumn_0);
-  const [tasks , setTasks ]  = useState(() => generateTasks(5));
+  const [tasks , setTasks ]  = useState(() => generateTasks(20));
 
   const onDragStart = (event : DragEvent, taskId : number , fromColumn : string) => {
 

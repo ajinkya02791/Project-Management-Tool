@@ -1,7 +1,7 @@
 export interface Task {
 id : number,
 title : string,
-assignes : string,
+assigns : string,
 tag : string,
 status : string,
 dateStart : Date,

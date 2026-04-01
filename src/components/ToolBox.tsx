@@ -29,7 +29,7 @@ function ToolBox() {
     
 
   return (
-    <div className='md:flex md:justify-center md:gap-3 box-border w-screen m-5 h-80'>
+    <div className=' md:flex md:justify-center md:gap-3 box-border w-screen m-5 h-screen'>
       
         <Column status="to-do" column={todo}/>
 
