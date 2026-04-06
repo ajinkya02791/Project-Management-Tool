@@ -1,13 +1,11 @@
 import Column from './Column'
 import { useTasks } from '../context/TaskContext'
-import { type Task, type ViewMode} from '../utility/interfaces.ts'
-import { useState } from 'react';
+import { type Task } from '../utility/interfaces.ts'
 import List from './List.tsx';
 
 function ToolBox() {
 
-  const { tasks} : any = useTasks();
-  const [viewMode, setViewMode ] = useState<ViewMode>("list")
+  const { tasks, viewMode} : any = useTasks();
 
     const todo = tasks.filter((task : Task) => task.status == "to-do");
     const in_progress = tasks.filter((task : Task) => task.status == "in-progress");
@@ -15,7 +13,7 @@ function ToolBox() {
     const done = tasks.filter((task : Task) => task.status == "done");
 
     // console.log(todo,in_progress,in_review,done);
-    
+    // console.log(viewMode);
   if(viewMode == "kaban")
   return (
 

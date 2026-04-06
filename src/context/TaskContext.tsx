@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useState, type DragEvent } from 'react'
-import { type Task , type TaskContextType } from '../utility/interfaces.js'
+import type{  Task , TaskContextType, ViewMode } from '../utility/interfaces.js'
 import { generateTasks } from '../utility/generateTasks.js'
 
 
@@ -38,6 +38,10 @@ export const TaskProvider = ({children} : any) => {
 //   const [columns , setColumns] = useReducer(reducer, cloumn_0);
   const [tasks , setTasks ]  = useState(() => generateTasks(20));
 
+  const [viewMode, setViewMode ] = useState<ViewMode>("kaban");
+
+// console.log(viewMode);
+
   const onDragStart = (event : DragEvent, taskId : number , fromColumn : string) => {
 
     event.dataTransfer.setData("taskId", taskId.toString());
@@ -73,7 +77,7 @@ export const TaskProvider = ({children} : any) => {
 
 
     return (
-        <TaskContext.Provider value={{ tasks , onDragStart, onDragOver, onDrop}} >
+        <TaskContext.Provider value={{ tasks , onDragStart, onDragOver, onDrop, viewMode, setViewMode}} >
             {children}
         </TaskContext.Provider>
     )

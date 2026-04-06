@@ -11,6 +11,8 @@ dateEnd : Date
 
 export interface TaskContextType {
   tasks: Task[];
+  viewMode : ViewMode;
+  setViewMode : Function;
   onDragStart: (event: React.DragEvent, taskId: number, fromColumn: string) => void;
   onDragOver: (event: React.DragEvent) => void;
   onDrop: (event: React.DragEvent, toColumn: string) => void;
