@@ -37,6 +37,7 @@ export const TaskProvider = ({children} : any) => {
 
 //   const [columns , setColumns] = useReducer(reducer, cloumn_0);
   const [tasks , setTasks ]  = useState(() => generateTasks(20));
+  const [scrollTop, setScrollTop] = useState<number>(0);
 
   const [viewMode, setViewMode ] = useState<ViewMode>("kaban");
 
@@ -77,7 +78,7 @@ export const TaskProvider = ({children} : any) => {
 
 
     return (
-        <TaskContext.Provider value={{ tasks , onDragStart, onDragOver, onDrop, viewMode, setViewMode}} >
+        <TaskContext.Provider value={{ tasks , scrollTop, setScrollTop, onDragStart, onDragOver, onDrop, viewMode, setViewMode}} >
             {children}
         </TaskContext.Provider>
     )

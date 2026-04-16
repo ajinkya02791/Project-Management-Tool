@@ -2,8 +2,9 @@ import type { Task } from "../utility/interfaces"
 
 
 const List = (props : {task :Task}) => {
+  console.log(props)
   return (
-    <div className="flex justify-around m-1 p-1 gap-5 md:w-7/9  w-7/8 box-border border-b-black border-2 text-center">
+    <div className="flex justify-around p-1 gap-5 md:w-7/9  w-7/8 box-border border-b-black border-2 text-center">
         <h5>{props.task.id}</h5> 
         <h5>{props.task.status}</h5> 
         <h5>{props.task.title}</h5> 

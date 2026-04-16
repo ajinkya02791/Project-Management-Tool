@@ -1,3 +1,6 @@
+import type { SetStateAction } from "react";
+import type React from "react";
+
 export interface Task {
 id : number,
 title : string,
@@ -12,7 +15,9 @@ dateEnd : Date
 export interface TaskContextType {
   tasks: Task[];
   viewMode : ViewMode;
-  setViewMode : Function;
+  setViewMode : React.Dispatch<SetStateAction<ViewMode>>;
+  scrollTop : number;
+  setScrollTop : React.Dispatch<React.SetStateAction<number>>
   onDragStart: (event: React.DragEvent, taskId: number, fromColumn: string) => void;
   onDragOver: (event: React.DragEvent) => void;
   onDrop: (event: React.DragEvent, toColumn: string) => void;
