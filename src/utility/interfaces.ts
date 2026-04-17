@@ -21,6 +21,7 @@ export interface TaskContextType {
   onDragStart: (event: React.DragEvent, taskId: number, fromColumn: string) => void;
   onDragOver: (event: React.DragEvent) => void;
   onDrop: (event: React.DragEvent, toColumn: string) => void;
+  taskCount : number;
 }
 
 

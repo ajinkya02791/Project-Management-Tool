@@ -5,7 +5,7 @@ import List from './List.tsx';
 
 function ToolBox() {
 
-  const { tasks, viewMode, setScrollTop , scrollTop} : any = useTasks();
+  const { tasks, viewMode, setScrollTop , scrollTop , taskCount } : any = useTasks();
 
   const listTaskHeight = 40;
   const Buffer = 3;
@@ -23,7 +23,7 @@ function ToolBox() {
   // start index and end index in virtualized list 
   console.log("scrollTop", scrollTop);
   const startIndex = Math.max(0, a);
-  const endIndex = Math.min(Math.floor(scrollTop + containerHeight)/listTaskHeight + Buffer, 19  );
+  const endIndex = Math.min(Math.floor(scrollTop + containerHeight)/listTaskHeight + Buffer, taskCount  );
   
   const offsetY = startIndex * listTaskHeight;
 
@@ -58,7 +58,7 @@ function ToolBox() {
             onScroll={(e)=> setScrollTop(e.currentTarget.scrollTop)}
           
       >
-      <div className='flex flex-col w-full items-center' style={{ height : `${19 * listTaskHeight}px`}}>
+      <div className='flex flex-col w-full items-center' style={{ height : `${ taskCount * listTaskHeight}px`}}>
         <div className='flex flex-col w-full items-center' style={{ transform: `translateY(${offsetY}px)`}} >
 
         {tasks.slice(startIndex, endIndex + 1).map((task : Task, i : number) => {
